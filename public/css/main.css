@@ -44,7 +44,9 @@ nav a{
     text-align: center;
     border: 0.3vw solid var(--primary);
 }
-
+button{
+    cursor: pointer;
+}
 :root{
     --primary: #313BFF;
     --secondary: #F2F2F2;

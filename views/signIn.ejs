@@ -1,7 +1,16 @@
 <%- include("./partials/head.ejs")  %>
-
+<link rel="stylesheet" href="/css/auth.css">
+<script src="/script/fetch_login.js" defer></script>
 <%- include("./partials/header.ejs")  %>
 
+<form>
+    <label for="username">Brukernavn:</label>
+    <input type="text" name="username" id="username" placeholder="Enter your username..">
+    <label for="passwd">Passord:</label>
+    <input type="text" name="passwd" id="passwd" placeholder="Enter your password..">
+    <button type="submit">Logg Inn</button>
+     <a href="/signUp">Har ikke en Bruker?</a>
+</form>
 
 </body>
 </html>

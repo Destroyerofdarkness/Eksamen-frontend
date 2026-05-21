@@ -1,0 +1,47 @@
+form{
+    align-self: center;
+    border: 0.3vw solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vw;
+    padding: 2vw;
+    width: 18vw;
+    border-radius: 0.3vw;
+}
+form label{
+    font-size: 1.4vw;
+    color: var(--primary);
+    font-family: var(--kadwa);
+}
+form input{
+    width: 15vw;
+    margin-bottom: 1.5vw;
+    height: auto;
+    border: 0.3vw solid var(--primary);
+    padding: 0.7vw;
+    font-size: 1vw;
+    outline: none;
+    align-self: center;
+    border-radius: 0.5vw;
+}
+form button{
+    width: 10vw;
+    align-self: center;
+    text-align: center;
+    border: 0.3vw solid var(--primary);
+    font-size: 1.2vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+    border-radius: 0.5vw;
+}
+form a {
+    font-size: 0.8vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+    margin-top: 1.2vw;
+}
+:root{
+    --primary: #313BFF;
+    --secondary: #F2F2F2;
+    --kadwa: "Kadwa", serif;
+}
