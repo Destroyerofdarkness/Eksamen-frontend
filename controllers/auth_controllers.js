@@ -22,7 +22,7 @@ const render_sign_in = (req,res)=>{
 
 const send_sign_in_req = async(req,res)=>{
     try {
-        const {success, errors, token} = await post_req("/signIn", req.body);
+        const {success, errors, token} = await post_req("/auth/signIn", req.body);
         if(token){
             res.status(200).json({token, success});
         }else{
@@ -34,9 +34,23 @@ const send_sign_in_req = async(req,res)=>{
     };
 };
 
+const send_sign_up_req = async(req,res)=>{
+    try {
+        const {token, success, errors} = await post_req("/auth/signUp", req.body);
+        if(token){
+            res.status(200).json({token, success});
+        }else{
+            res.status(400).json({errors, success});
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({err})
+    }
+}
 
 module.exports = {
     render_sign_in,
     render_sign_up,
-    send_sign_in_req
+    send_sign_in_req,
+    send_sign_up_req
 }

@@ -7,4 +7,6 @@ router.get("/signUp",controller.render_sign_up);
 
 router.post("/signIn", controller.send_sign_in_req);
 
+router.post("/signUp", controller.send_sign_up_req)
+
 module.exports = router;

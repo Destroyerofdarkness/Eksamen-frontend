@@ -15,7 +15,7 @@ form label{
 }
 form input{
     width: 15vw;
-    margin-bottom: 1.5vw;
+    
     height: auto;
     border: 0.3vw solid var(--primary);
     padding: 0.7vw;
@@ -27,6 +27,7 @@ form input{
 form button{
     width: 10vw;
     align-self: center;
+    margin-top:1vw ;
     text-align: center;
     border: 0.3vw solid var(--primary);
     font-size: 1.2vw;
@@ -39,6 +40,12 @@ form a {
     font-family: var(--kadwa);
     color: var(--primary);
     margin-top: 1.2vw;
+}
+.error{
+    color: red;
+    font-size: 0.9vw;
+    font-family: var(--kadwa);
+    margin-bottom: 1.5vw;
 }
 :root{
     --primary: #313BFF;

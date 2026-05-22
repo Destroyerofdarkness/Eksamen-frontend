@@ -1,14 +1,17 @@
 <%- include("./partials/head.ejs")  %>
 <link rel="stylesheet" href="/css/auth.css">
+<script src="/script/fetch_signUp.js" defer></script>
 <%- include("./partials/header.ejs")  %>
 
 <form>
     <label for="username">Brukernavn:</label>
     <input type="text" name="username" id="username" placeholder="Enter your username..">
-    <label for="passwd">Passord:</label>
-    <input type="text" name="passwd" id="passwd" placeholder="Enter your password..">
+     <div class="error user"></div>
+    <label for="passwd">Passord:</label>  
+    <input type="password" name="passwd" id="passwd" placeholder="Enter your password..">
     <label for="conPass">Gjenta Passord:</label>
-    <input type="text" name="conPass" id="conPass" placeholder="Confirm your password..">
+    <input type="password" name="conPass" id="conPass" placeholder="Confirm your password..">
+    <div class="error passwd"></div>
     <button type="submit">Registrer</button>
     <a href="/signIn">Har allerede en Bruker?</a>
 </form>
