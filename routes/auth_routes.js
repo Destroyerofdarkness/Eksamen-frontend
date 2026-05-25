@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require("../controllers/auth_controllers")
+const controller = require("../controllers/auth_controllers");
 
 router.get("/signIn",controller.render_sign_in);
 

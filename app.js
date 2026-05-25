@@ -11,7 +11,9 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 //Routes
-const auth_routes = require("./routes/auth_routes")
+const auth_routes = require("./routes/auth_routes");
+
+const main_routes = require("./routes/main_routes");
 
 //Config
 app.set("view engine", "ejs");
@@ -31,6 +33,9 @@ app.use(cors({
 }))
 
 //Used Routes
+
+app.use(main_routes);
+
 app.use(auth_routes);
 
 //Server Start
