@@ -1,6 +1,6 @@
 const post_req = require("../handlers/postContentHandler")
 
-
+//Doing things on server side
 const render_sign_up = (req,res)=>{
     try {
        res.render("signUp", {title: "Sign Up"}) 
@@ -19,7 +19,26 @@ const render_sign_in = (req,res)=>{
     }
 }
 
+const log_out = (req,res)=>{
+    try {
+        res.cookie("jwt", "", {maxAge:10});
+        res.redirect("/signIn");
+    } catch (err) {
+        res.status(500).send("Internal Server Error!!");
+    }
+}
 
+const createCookie = async(req,res)=>{
+    const token = req.params.token;
+    try {
+        res.cookie("jwt", token, { httpOnly:true ,maxAge: 10 *60*60*1000 });
+        res.redirect("/")
+    } catch (err) {
+        res.status(500).send("Internal Server Error!!");
+    }
+}
+
+//Sending requests to API
 const send_sign_in_req = async(req,res)=>{
     try {
         const {success, errors, token} = await post_req("/auth/signIn", req.body);
@@ -48,20 +67,13 @@ const send_sign_up_req = async(req,res)=>{
     }
 }
 
-const createCookie = async(req,res)=>{
-    const token = req.params.token;
-    try {
-        res.cookie("jwt", token, { httpOnly:true ,maxAge: 10 *60*60*1000 });
-        res.redirect("/")
-    } catch (err) {
-        res.status(500).send("Internal Server Error!!");
-    }
-}
+
 
 module.exports = {
     render_sign_in,
     render_sign_up,
     send_sign_in_req,
     send_sign_up_req,
-    createCookie
+    createCookie,
+    log_out
 }
