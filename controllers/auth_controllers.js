@@ -48,9 +48,20 @@ const send_sign_up_req = async(req,res)=>{
     }
 }
 
+const createCookie = async(req,res)=>{
+    const token = req.params.token;
+    try {
+        res.cookie("jwt", token, { httpOnly:true ,maxAge: 10 *60*60 });
+        res.redirect("/")
+    } catch (err) {
+        res.status(500).send("Internal Server Error!!");
+    }
+}
+
 module.exports = {
     render_sign_in,
     render_sign_up,
     send_sign_in_req,
-    send_sign_up_req
+    send_sign_up_req,
+    createCookie
 }

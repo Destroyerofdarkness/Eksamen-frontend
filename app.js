@@ -6,6 +6,8 @@ const cors = require("cors");
 
 const path = require("path");
 
+const cookieParser = require("cookie-parser");
+
 require("dotenv").config();
 
 //Routes
@@ -19,6 +21,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use(cors({
     origin: process.env.ORIGIN,
