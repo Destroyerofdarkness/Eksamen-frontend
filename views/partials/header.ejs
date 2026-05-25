@@ -5,7 +5,11 @@
 <h1>SITETITLE</h1> 
 <h2><%= title  %></h2>
 <nav>
+    <% if(user){ %>
+        <a href="/logOut">Logg Ut</a>
+    <% }else{ %>
     <a href="/signIn">Logg Inn</a>
+    <% } %>
     <a href="/">Hovedside</a>
 </nav>
 </header>

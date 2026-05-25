@@ -10,6 +10,10 @@ const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
+//Middleware
+
+const {checkUser} = require("./middleware/authenticate");
+
 //Routes
 const auth_routes = require("./routes/auth_routes");
 
@@ -31,6 +35,10 @@ app.use(cors({
     methods: ["GET","POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
+
+//Used middleware
+
+app.use(checkUser);
 
 //Used Routes
 

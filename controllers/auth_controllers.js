@@ -51,7 +51,7 @@ const send_sign_up_req = async(req,res)=>{
 const createCookie = async(req,res)=>{
     const token = req.params.token;
     try {
-        res.cookie("jwt", token, { httpOnly:true ,maxAge: 10 *60*60 });
+        res.cookie("jwt", token, { httpOnly:true ,maxAge: 10 *60*60*1000 });
         res.redirect("/")
     } catch (err) {
         res.status(500).send("Internal Server Error!!");
