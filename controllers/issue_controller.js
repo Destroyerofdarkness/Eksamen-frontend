@@ -1,4 +1,5 @@
 const post_req = require("../handlers/postContentHandler");
+const get_req = require("../handlers/getContentHandler");
 
 //Server side render
 const render_issue_publish_page = (req, res) => {
@@ -11,9 +12,10 @@ const render_issue_publish_page = (req, res) => {
 };
 
 
-const render_admin_page = (req,res)=>{
+const render_admin_page = async(req,res)=>{
     try{
-        res.render("administration", {title:"Administrasjon"});
+        const {Issues} = await get_req("/issue/get");
+        res.render("administration", {title:"Administrasjon", Issues});
     } catch (err) {
         console.log(err);
         res.status(500).send("Internal Server Error!!")

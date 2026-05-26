@@ -4,31 +4,37 @@
 
         <main>
             <h3>Administrer Hendelsene</h3>
+
+
+            <% Issues.forEach(issue => {%>
             <section>
-                <h4>THIS IS SO SHIT RN!!</h4>
-                <p>Indescribable oppression, which seemed to generate in some unfamiliar part of her consciousness,
-                    filled her whole being with a vague anguish. It was like a shadow, like a mist passing across her
-                    soul's summer day. It was strange and unfamiliar; it was a mood. </p>
+                <h4><%= issue.title  %></h4>
+                <p><%= issue.description %></p>
                 <form class="form criticalLevel">
                     <label for="criticalLevel">Kritisk Nivå:</label>
                     <select name="criticalLevel" id="criticalLevel">
-                        <option value="Ubestemt" disabled>Ubestemt</option>
+                        <option value="" disabled>Nå: <%= issue.criticality%></option>
                         <option value="Høy">Høy</option>
                         <option value="Middels">Middels</option>
                         <option value="Lav">Lav</option>
                     </select>
+                    <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
                     <button type="submit">Oppdater</button>
                 </form>
                 <form class="form Status">
                     <label for="status">Status: </label>
                     <select name="status" id="status">
-                        <option disabled>Nå: Åpen</option>
+                        <option disabled>Nå: <%= issue.status  %></option>
                         <option value="Åpen" >Åpen</option>
                         <option value="Lukket">Lukket</option>
                     </select>
+                    <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
                     <button type="submit">Oppdater</button>
                 </form>
             </section>
+            <% }); %>
+
+
         </main>
 
 

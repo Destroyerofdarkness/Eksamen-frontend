@@ -27,14 +27,14 @@ h2{
 nav{
     flex: 1;
     display: flex;
-    gap: 2vw;
+    gap: 1.3vw;
     margin-right: 1vw;
     justify-content: end;
     align-content: center;
 }
 nav a{
     align-self: center;
-    font-size: 1.3vw;
+    font-size: 1vw;
     font-family: var(--kadwa);
     color: var(--primary);
     text-decoration: none;
