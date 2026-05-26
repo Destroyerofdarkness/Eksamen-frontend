@@ -1,0 +1,16 @@
+<%- include("./partials/head.ejs")  %>
+<link rel="stylesheet" href="/css/publishIssue.css">
+<%- include("./partials/header.ejs")  %>
+
+<form>
+    <label for="title">Tittel:</label>
+    <input type="text" name="title" id="title" placeholder="Skriv inn tittel..">
+    <label for="description">Beskrivelse</label>
+    <textarea name="description" id="description" placeholder="Skriv inn beskrivelse på minst 100 tegn.."></textarea>
+    <input type="hidden" name="connection" id="connection" value="<%=user._id  %>">
+    <button type="submit">Anmeld</button>
+</form>
+
+
+</body>
+</html>

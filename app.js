@@ -19,6 +19,8 @@ const auth_routes = require("./routes/auth_routes");
 
 const main_routes = require("./routes/main_routes");
 
+const issue_routes = require("./routes/issue_routes");
+
 //Config
 app.set("view engine", "ejs");
 
@@ -45,6 +47,8 @@ app.use(checkUser);
 app.use(main_routes);
 
 app.use(auth_routes);
+
+app.use("/hendelse",issue_routes);
 
 //Server Start
 app.listen(process.env.PORT, (req,res)=>{

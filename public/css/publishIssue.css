@@ -1,0 +1,59 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 2vw;
+    border: 0.3vw solid var(--primary);
+    border-radius: 0.4vw;
+    margin-top: 7vw;
+    margin-bottom: 10vw;
+}
+form label{
+    font-size: 1.5vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+}
+form input{
+    height: max-content;
+    font-size: 1.1vw;
+    font-family: var(--kadwa);
+    padding: 0.4vw;
+    width: 25vw;
+    color: var(--primary);
+    outline: none;
+    border-radius: 0.4vw;
+    border: 0.3vw solid var(--primary);
+    background: var(--secondary);
+}
+form textarea {
+    min-height: 15vw;
+    font-size: 1.1vw;
+    background: var(--secondary);
+    font-family: var(--kadwa);
+    padding: 0.4vw;
+    max-width: 45vw;
+    min-width: 45vw;
+    color: var(--primary);
+    outline: none;
+    border-radius: 0.4vw;
+    border: 0.3vw solid var(--primary);
+
+}
+form button{
+    width: fit-content;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin:0.7vw;
+    align-self: flex-end;
+    font-size: 1.3vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+    outline: none;
+    border-radius: 0.4vw;
+    border: 0.3vw solid var(--primary);
+}
+:root{
+    --primary: #313BFF;
+    --secondary: #F2F2F2;
+    --kadwa: "Kadwa", serif;
+}
