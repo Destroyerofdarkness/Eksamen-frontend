@@ -1,4 +1,4 @@
-const post_req = require("../handlers/postContentHandler")
+const post_req = require("../handlers/postContentHandler");
 
 //Doing things on server side
 const render_sign_up = (req,res)=>{
