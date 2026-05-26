@@ -3,7 +3,7 @@ const post_req = require("../handlers/postContentHandler")
 //Doing things on server side
 const render_sign_up = (req,res)=>{
     try {
-       res.render("signUp", {title: "Sign Up"}) 
+       res.render("signUp", {title: "Registrer"}) 
     } catch (err) {
         console.log(err);
         res.status(500).send("Internal Server Error!!");
@@ -12,7 +12,7 @@ const render_sign_up = (req,res)=>{
 
 const render_sign_in = (req,res)=>{
     try {
-       res.render("signIn", {title: "Sign In"}) 
+       res.render("signIn", {title: "Logg Inn"}) 
     } catch (err) {
         console.log(err);
         res.status(500).send("Internal Server Error!!");

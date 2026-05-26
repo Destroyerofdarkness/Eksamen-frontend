@@ -9,13 +9,14 @@ form.addEventListener("submit", async (e)=>{
     const username = form.username.value;
     const passwd = form.passwd.value;
     const conPass = form.conPass.value;
-
+    const authKey = form.authKey.value;
+    console.log(authKey)
     userError.textContent = "";
     passError.textContent = "";
 
     const res = await fetch("/signUp",{
         method: "POST",
-        body: JSON.stringify({username, passwd, conPass}),
+        body: JSON.stringify({username, passwd, conPass, authKey}),
         headers: {"Content-Type":"application/json"}
     });
 
