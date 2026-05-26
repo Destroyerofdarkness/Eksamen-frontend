@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 const userError = document.querySelector(".error.user");
 const passError = document.querySelector(".error.passwd");
+const authError = document.querySelector(".error.authKey");
 
 
 form.addEventListener("submit", async (e)=>{
@@ -13,6 +14,7 @@ form.addEventListener("submit", async (e)=>{
     console.log(authKey)
     userError.textContent = "";
     passError.textContent = "";
+    authError.textContent = "";
 
     const res = await fetch("/signUp",{
         method: "POST",
@@ -27,5 +29,6 @@ form.addEventListener("submit", async (e)=>{
     }else{
         userError.textContent = errors.username;
         passError.textContent = errors.passwd;
+        authError.textContent = errors.authorization;
     }
 })
