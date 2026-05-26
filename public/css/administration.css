@@ -1,0 +1,67 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-content: center;
+    max-width: 45vw;
+    gap: 2vw;
+}
+main h3{
+    font-size: 1.5vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+    text-align: center;
+}
+main section{
+    border-radius: 0.4vw;
+    border: 0.3vw solid var(--primary);
+    padding: 1vw;
+    width: 45vw;
+    height: max-content;
+}
+main section h4{
+    font-size: 1.3vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+    margin: 0;
+}
+main section p {
+    font-size: 1vw;
+    font-family: var(--k2d);
+    color: var(--primary);
+    font-weight: 400;
+
+}
+.form{
+    display: flex;
+    gap: 0.5vw;
+    margin: 0.3vw;
+}
+.form label{
+    font-size: 0.8vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+}
+.form select{
+    border: 0.2vw solid var(--primary);
+    padding: 0.3vw;
+    font-size: 0.6vw;
+    border-radius: 0.4vw;
+    font-family: var(--k2d);
+    outline: none;
+    color: var(--primary);
+    width: fit-content;
+}
+.form button{
+    border: 0.2vw solid var(--primary);
+    border-radius: 0.4vw;
+    font-size: 0.8vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+}
+:root{
+    --primary: #313BFF;
+    --secondary: #F2F2F2;
+    --kadwa: "Kadwa", serif;
+    --k2d: "K2D", sans-serif;
+}

@@ -6,7 +6,11 @@
 <h2><%= title  %></h2>
 <nav>
     <% if(user){ %>
+        <% if(user.authorization === "admin"){ %>
+        <a href="/hendelse/administrasjon">Administrasjon</a>
+        <% }else{ %>
         <a href="/">Hovedside</a>
+        <% } %>
         <a href="/hendelse/anmeld">Publiser Hendelse</a>
          <a href="/logOut">Logg Ut</a>
     <% }else{ %>
