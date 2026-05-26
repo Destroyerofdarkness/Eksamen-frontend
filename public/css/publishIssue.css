@@ -16,7 +16,7 @@ form label{
 form input{
     height: max-content;
     font-size: 1.1vw;
-    font-family: var(--kadwa);
+    font-family: var(--k2d);
     padding: 0.4vw;
     width: 25vw;
     color: var(--primary);
@@ -29,7 +29,7 @@ form textarea {
     min-height: 15vw;
     font-size: 1.1vw;
     background: var(--secondary);
-    font-family: var(--kadwa);
+    font-family: var(--k2d);
     padding: 0.4vw;
     max-width: 45vw;
     min-width: 45vw;
@@ -52,8 +52,15 @@ form button{
     border-radius: 0.4vw;
     border: 0.3vw solid var(--primary);
 }
+.error{
+    color: red;
+    font-size: 0.9vw;
+    font-family: var(--kadwa);
+    margin-bottom: 1.7vw;
+}
 :root{
     --primary: #313BFF;
     --secondary: #F2F2F2;
     --kadwa: "Kadwa", serif;
+    --k2d: "K2D", sans-serif;
 }

@@ -1,4 +1,7 @@
 const form = document.querySelector("form");
+const titleError = document.querySelector(".error.title");
+const descError = document.querySelector(".error.description");
+
 
 form.addEventListener("submit",async(e)=>{
     e.preventDefault()
@@ -6,9 +9,12 @@ form.addEventListener("submit",async(e)=>{
     const description = form.description.value;
     const connection = form.connection.value;
 
+    titleError.textContent = ""
+    descError.textContent = "";
+
     const res = await fetch("/hendelse/anmeld",{
         method: "POST",
-        body: JSON.stringify({}),
+        body: JSON.stringify({title, description, connection}),
         headers: {"Content-Type": "application/json"}
     });
 
@@ -18,6 +24,7 @@ form.addEventListener("submit",async(e)=>{
         window.alert("Hendelsen ble registrert");
         window.location.href = "/"
     }else{
-
+        titleError.textContent = errors.title;
+        descError.textContent = errors.description;
     }
 } )
