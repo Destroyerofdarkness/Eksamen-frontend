@@ -53,9 +53,24 @@ const update_issue_logg_req = async (req,res)=>{
   }
 }
 
+
+const update_issue_criticality_req = async(req,res)=>{
+  try {
+    const {success} = await put_req("/issue/update/criticality",req.body)
+    if(success){
+      res.status(200).json({success});
+    }else{
+      res.status(400).json({success});
+    }
+  } catch (error) {
+      console.log(err);
+      res.status(500).json({success:false});
+  }
+}
 module.exports = { 
     render_issue_publish_page,
     send_issue_publish_req,
     render_admin_page,
-    update_issue_logg_req
+    update_issue_logg_req,
+    update_issue_criticality_req
  };

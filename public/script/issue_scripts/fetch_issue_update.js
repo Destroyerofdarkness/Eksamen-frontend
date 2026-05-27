@@ -1,4 +1,4 @@
-
+//Toggle the show logg 
 document.addEventListener("click", (e)=>{
     if(e.target.classList.contains("skrivLogg")){
         const targetForm = e.target.nextElementSibling;
@@ -15,8 +15,12 @@ document.addEventListener("click", (e)=>{
     }
 })
 
+
+//Update Request
 document.addEventListener("submit", async(e)=>{
     e.preventDefault();
+
+    //Logg Update
     if(e.target.classList.contains("logg")){  
         
         const id = e.target.id.value;
@@ -38,5 +42,28 @@ document.addEventListener("submit", async(e)=>{
            window.alert("Det er ikke mulig å oppdatere hendelsen akkurat nå!!");
            window.location.reload();
         }
+
+       //Critical Level Update 
+    } else if (e.target.classList.contains("criticalLevel")){
+        const issueId = e.target.issueId.value;
+        const criticality = e.target.criticalLevel.value;
+        
+        const res = await fetch("/hendelse/oppdater/kritiskNiva",{
+            method: "PUT",
+            body: JSON.stringify({issueId, criticality}),
+            headers: {"Content-Type": "application/json"}
+        })
+        
+
+        const {success } = await res.json();
+
+        if(success){
+            window.alert("Hendelsen ble oppdatert");
+            window.location.reload();
+        }else{
+           window.alert("Det er ikke mulig å oppdatere hendelsen akkurat nå!!");
+           window.location.reload();
+        }
+
     }
 })
