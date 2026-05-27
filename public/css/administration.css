@@ -38,7 +38,7 @@ main section p {
     margin: 0.3vw;
 }
 .form label{
-    font-size: 0.8vw;
+    font-size: 1vw;
     font-family: var(--kadwa);
     color: var(--primary);
 }
@@ -53,6 +53,37 @@ main section p {
     width: fit-content;
 }
 .form button{
+    border: 0.2vw solid var(--primary);
+    border-radius: 0.4vw;
+    font-size: 0.8vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+}
+.skrivLogg{
+    border: 0.2vw solid var(--primary);
+    border-radius: 0.4vw;
+    font-size: 0.8vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+}
+.logg{
+    display: none;
+    flex-direction: column;
+}
+.logg textarea{
+    min-width: 43vw;
+    max-width: max-content;
+    border: 0.2vw solid var(--primary);
+    border-radius: 0.4vw;
+    font-size: 0.8vw;
+    outline: none;
+    min-height: 10vw;
+    padding: 0.2vw;
+    font-family: var(--kadwa);
+    color: var(--primary);
+}
+.lukkLogg{
+    display: none;
     border: 0.2vw solid var(--primary);
     border-radius: 0.4vw;
     font-size: 0.8vw;

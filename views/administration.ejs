@@ -1,5 +1,6 @@
 <%- include("./partials/head.ejs") %>
 <link rel="stylesheet" href="/css/administration.css">
+<script src="/script/issue_scripts/fetch_issue_logg.js" defer></script>
     <%- include("./partials/header.ejs") %>
 
         <main>
@@ -21,14 +22,12 @@
                     <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
                     <button type="submit">Oppdater</button>
                 </form>
-                <form class="form Status">
-                    <label for="status">Status: </label>
-                    <select name="status" id="status">
-                        <option disabled>Nå: <%= issue.status  %></option>
-                        <option value="Åpen" >Åpen</option>
-                        <option value="Lukket">Lukket</option>
-                    </select>
-                    <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
+                <button class="lukkLogg">Lukk Loggen</button>
+                <button class="skrivLogg">Skriv i Loggen</button>
+                <form class="form logg">
+                    <input type="hidden" name="id" id="id" value="<%= issue._id %>">
+                    <label for="logg">Skriv eller oppdater her:</label>
+                    <textarea name="logg" id="logg"></textarea>
                     <button type="submit">Oppdater</button>
                 </form>
             </section>
