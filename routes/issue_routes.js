@@ -11,5 +11,7 @@ router.get("/administrasjon", authenticate,checkAdmin ,controller.render_admin_p
 //API requests
 router.post("/anmeld", authenticate, controller.send_issue_publish_req);
 
+router.put("/oppdater/logg", authenticate,checkAdmin, controller.update_issue_logg_req);
+
 
 module.exports = router;

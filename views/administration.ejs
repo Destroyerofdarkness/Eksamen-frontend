@@ -27,7 +27,7 @@
                 <form class="form logg">
                     <input type="hidden" name="id" id="id" value="<%= issue._id %>">
                     <label for="logg">Skriv eller oppdater her:</label>
-                    <textarea name="logg" id="logg"></textarea>
+                    <textarea name="logg" id="logg"><%= issue.loggText %></textarea>
                     <button type="submit">Oppdater</button>
                 </form>
             </section>
