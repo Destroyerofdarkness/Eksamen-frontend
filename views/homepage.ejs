@@ -1,8 +1,17 @@
 <%- include("./partials/head.ejs")  %>
-
+<link rel="stylesheet" href="/css/homepage.css">
 <%- include("./partials/header.ejs")  %>
 
-
+<main>
+    <h3>Mest Kritiske Hendelsene</h3>
+    
+    <% Issues.forEach(issue=>{ %>
+        <section>
+                <h4><%= issue.title  %></h4>
+                <p><%= issue.description %></p>
+        </section>
+    <% }) %>
+</main>
 
 </body>
 </html>

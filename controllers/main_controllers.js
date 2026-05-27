@@ -1,7 +1,10 @@
+const get_req = require("../handlers/getContentHandler");
 
-const render_homepage = (req,res)=> {
+
+const render_homepage = async(req,res)=> {
     try {
-        res.render("homepage", {title:"Homepage"});
+        const {Issues} = await get_req("/issue/categorize/Høy");
+        res.render("homepage", {title:"Homepage", Issues});
     } catch (err) {
         res.status(500).send("Internal Server Error!!")
     }
