@@ -3,11 +3,24 @@
 <script src="/script/issue_scripts/fetch_issue_update.js" defer></script>
     <%- include("./partials/header.ejs") %>
 
+        <h3>Administrer Hendelsene</h3>
+
+            <form id="filter" action="/hendelse/administrasjon" method="get">
+                <label for="criticalLevel">Kritisk Nivå</label>
+                <select name="criticalLevel" id="criticalLevel">
+                    <option value="" disabled>Nå: <%= criticality %></option>
+                    <option value="">Ingen</option>
+                    <option value="Høy">Høy</option>
+                    <option value="Middels">Middels</option>
+                    <option value="Lav">Lav</option>
+                </select>
+                <button type="submit">Filtrer</button>
+            </form>
+
+
         <main>
-            <h3>Administrer Hendelsene</h3>
 
-
-            <% Issues.forEach(issue => {%>
+            <% Issues.forEach(issue => {%>         
             <section>
                 <h4><%= issue.title  %></h4>
                 <p><%= issue.description %></p>

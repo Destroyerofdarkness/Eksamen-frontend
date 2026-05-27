@@ -7,14 +7,13 @@ form.addEventListener("submit",async(e)=>{
     e.preventDefault()
     const title = form.title.value;
     const description = form.description.value;
-    const connection = form.connection.value;
 
     titleError.textContent = ""
     descError.textContent = "";
 
     const res = await fetch("/hendelse/anmeld",{
         method: "POST",
-        body: JSON.stringify({title, description, connection}),
+        body: JSON.stringify({title, description}),
         headers: {"Content-Type": "application/json"}
     });
 

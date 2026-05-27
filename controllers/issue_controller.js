@@ -4,8 +4,11 @@ const put_req = require("../handlers/updateContentHandler")
 
 //Server side render
 const render_issue_publish_page = (req, res) => {
+  let criticalLevel = req.query.criticalLevel;
+  console.log(req.query)
   try {
-    res.render("publishIssue", { title: "Anmeld Hendelse" });
+
+    res.render("publishIssue", { title: "Anmeld Hendelse",  });
   } catch (err) {
     console.log(err);
     res.status(500).send("Internal Server Error");
@@ -14,9 +17,17 @@ const render_issue_publish_page = (req, res) => {
 
 
 const render_admin_page = async(req,res)=>{
-    try{
+     let criticalLevel = req.query.criticalLevel;  
+  try{
+      let criticality = "Ingen"
+      if(!criticalLevel == ""){
+      criticality = criticalLevel;
+      const {Issues} = await get_req(`/issue/categorize/${criticality}`)
+      res.render("administration", {title:"Administrasjon", Issues, criticality});
+      }else{
         const {Issues} = await get_req("/issue/get");
-        res.render("administration", {title:"Administrasjon", Issues});
+        res.render("administration", {title:"Administrasjon", Issues, criticality});
+      }
     } catch (err) {
         console.log(err);
         res.status(500).send("Internal Server Error!!")

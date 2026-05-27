@@ -15,9 +15,10 @@ document.addEventListener("click", (e)=>{
     }
 })
 
+const main = document.querySelector("main");
 
 //Update Request
-document.addEventListener("submit", async(e)=>{
+main.addEventListener("submit", async(e)=>{
     e.preventDefault();
 
     //Logg Update
