@@ -11,4 +11,15 @@ const render_homepage = async(req,res)=> {
 }
 
 
-module.exports = { render_homepage}
+const rende_guide = (req,res)=>{
+    try {
+        res.render("guide",{title:"Brukerveiledning"});
+    } catch (err) {
+        res.status(500).send("Internal Server Error!!")
+    }
+}
+
+module.exports = { 
+    render_homepage,
+    rende_guide
+}

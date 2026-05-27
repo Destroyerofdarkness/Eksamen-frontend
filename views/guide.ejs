@@ -1,0 +1,60 @@
+<%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="/css/guide.css">
+    <%- include("./partials/header.ejs") %>
+
+        <h3>Brukerveiledningen for programmet</h3>
+
+        <main>
+            <section>
+                <img src="/img/stage1.png" alt="Bildet som viser påloggings siden til Kommune 69">
+                <p>Når du kommer først inn på nettsiden, blir du da møtt med en påloggings side. Du må skrive inn
+                    brukernavn og passord i feltene og trykke "Logg Inn".
+                    Dersom du ikke har en bruker, kan du trykke på "Har ikke en Bruker?" under passord felte, og da blir
+                    du sendt til siden, som er i neste stege nede.
+                    Grunnen med en pålogging funksjon er for å autentisere alle arbeiderne, som skal ha tilgang til
+                    Hendelsene. Hvis vi ikke hadde hatt en slik metode, så
+                    kunne hvem som helst komme inn, se og endre data på hendelsene.
+                </p>
+            </section>
+            <section>
+                <img src="/img/stage2.png" alt="Bildet som viser registrerings siden til Kommune 69">
+                <p>
+                    Etter du lander inn på registrerings siden, så må du skrive inn en ny brukernavn, og gjenta
+                    passordet 2 ganger i feltene. I tillegg til det, så trenger
+                    du en autoriseringsnøkkel. En slik nøkkel får du av IT avdelingen, og da må du be den ansvarlige av
+                    avdelingen din for å sende en mail til IT ansvarlige.
+                </p>
+                <p>
+                    Typisk ventetid for å få en slik nøkkel kan være fra 40 til 70 minutter. Dersom du har en slik
+                    nøkkel så skal du ikke dele den med noen andre. Da kan du havne i
+                    trøbbel, og bli utestengt fra systemet. Nøkkelen er engangsbruk, så hvis noe skjer med den som f.eks
+                    at den ikke funker, kontakt avdelings ansvarlige så kjapt som mulig.
+                    Etter du har fått nøkkelen, så skriver du den inn på det nederste felte og trykke på "Registrer"
+                    knappen. Da kan du gå til neste steg nede.
+                </p>
+            </section>
+            <section>
+                <img src="/img/stage3.png"
+                    alt="Bildet av hovedsiden til kommune 69, som viser de mest kritiske hendelsene">
+                <p>Etter du har logget eller registrert deg, så lander du inn på siden, som du fikk tilgang til via
+                    prossesen. Det som står inne på hovedsiden er de mest kritiske hendelsene.
+                    De hendelsene ble merket av administrasjon som de mest kritiske på grunn av de er viktige å ta
+                    hensyn til. Det er kun administrasjon, som har tilgang til å redigere, se alt nødvendig info
+                    og notere under. </p>
+                <p>Hvis du er en del av administrasjon, så kan du besøke administrasjon siden via navigasjonsbaren i
+                    høyre hjørne. I navigasjonsbaren kan du velge å logge ut, Anmelde Hendelsene, og gå til hovedsiden.
+                    Hvis du skal anmelde en hendelse trykk på "Anmeld Hendelse" i navigasjonsbaren, og gå til neste
+                    steg.</p>
+            </section>
+            <section>
+                <img src="/img/stage4.png" alt="Bildet av anmeldelse siden hvor man kan anmelde hendelser">
+                <p>Når du har landet deg inn på anmeldese siden, så blir du møtt med en forum, som trenger en tittel og beskrivelse. 
+                    Tittelen skal beskrive hva saken generelt handler om, og beskrivelsen skal utdyppe hva tittelen sier.
+                    Dersom du er ferdig med å skrive begge, så kan du sende anmeldelsen til administrasjonen. 
+                    Administrasjon skal vurdere nivået på hendelsen, og tildele til en av arbeiderne. Hendelsen er anonym, men sakene som er useriøse og feil blir merkert som unødvendige, og blir ikke behandlet.
+                </p>
+            </section>
+        </main>
+
+
+        <%- include("./partials/footer.ejs") %>

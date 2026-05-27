@@ -24,7 +24,7 @@ h2{
     font-family: var(--kadwa);
     color: var(--primary);  
 }
-nav{
+header nav{
     flex: 1;
     display: flex;
     gap: 1.3vw;
@@ -48,6 +48,21 @@ nav a{
 }
 button{
     cursor: pointer;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    border-top: 0.3vw solid var(--primary);
+    background: var(--secondary);
+    margin-top: 8vw;
+}
+footer nav{
+    display: flex;
+    align-self: center;
+    margin-top: 4vw;
+    margin-bottom: 3vw;
 }
 :root{
     --primary: #313BFF;

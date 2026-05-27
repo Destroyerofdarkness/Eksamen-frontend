@@ -1,0 +1,41 @@
+h3{
+    font-size: 1.4vw;
+    color: var(--primary);
+    font-family: var(--kadwa);
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    border: 0.3vw solid var(--primary);
+    border-radius: 0.4vw;
+    align-self: center;
+    align-items: center;
+    padding: 2vw;
+    width: 50vw;
+    gap: 2vw;
+}
+main section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main section p{
+    font-size: 1.2vw;
+    font-family: var(--k2d);
+    font-weight: 400;
+    width: 45vw;
+    color: var(--primary);
+}
+
+img{
+    width: max-content;
+    height: 20vw;
+    border: 0.3vw solid var(--primary);
+}
+:root{
+    --primary: #313BFF;
+    --secondary: #F2F2F2;
+    --kadwa: "Kadwa", serif;
+    --k2d: "K2D", sans-serif;
+}
