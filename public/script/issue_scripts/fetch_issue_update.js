@@ -66,5 +66,27 @@ main.addEventListener("submit", async(e)=>{
            window.location.reload();
         }
 
+    } else if(e.target.classList.contains("authorized")){
+        const worker = e.target.worker.value;
+        if(!worker ==""){
+            const worker = e.target.worker.value;
+            const id = e.target.id.value;
+
+            const res = await fetch("/hendelse/oppdater/ansvarlig",{
+                method: "PUT",
+                body: JSON.stringify({id, worker}),
+                headers: {"Content-Type": "application/json"}
+            });
+
+            const {success} = await res.json();
+
+            if(success){
+            window.alert("Hendelsen ble oppdatert");
+            window.location.reload();
+            }else{
+           window.alert("Det er ikke mulig å oppdatere hendelsen akkurat nå!!");
+           window.location.reload();
+            }
+        }
     }
 })

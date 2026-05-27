@@ -19,14 +19,15 @@ const render_issue_publish_page = (req, res) => {
 const render_admin_page = async(req,res)=>{
      let criticalLevel = req.query.criticalLevel;  
   try{
+      const {workers} = await get_req("/worker/get");
       let criticality = "Ingen"
       if(!criticalLevel == ""){
       criticality = criticalLevel;
       const {Issues} = await get_req(`/issue/categorize/${criticality}`)
-      res.render("administration", {title:"Administrasjon", Issues, criticality});
+      res.render("administration", {title:"Administrasjon", Issues, criticality, workers});
       }else{
         const {Issues} = await get_req("/issue/get");
-        res.render("administration", {title:"Administrasjon", Issues, criticality});
+        res.render("administration", {title:"Administrasjon", Issues, criticality, workers});
       }
     } catch (err) {
         console.log(err);
@@ -73,7 +74,22 @@ const update_issue_criticality_req = async(req,res)=>{
     }else{
       res.status(400).json({success});
     }
-  } catch (error) {
+  } catch (err) {
+      console.log(err);
+      res.status(500).json({success:false});
+  }
+}
+
+
+const update_issue_authorized_req = async(req,res)=>{
+  try {
+    const {success} = await put_req("/issue/update/authorized",req.body);
+    if(success){
+      res.status(200).json({success});
+    }else{
+      res.status(400).json({success});
+    }
+  } catch (err) {
       console.log(err);
       res.status(500).json({success:false});
   }
@@ -83,5 +99,6 @@ module.exports = {
     send_issue_publish_req,
     render_admin_page,
     update_issue_logg_req,
-    update_issue_criticality_req
+    update_issue_criticality_req,
+    update_issue_authorized_req
  };

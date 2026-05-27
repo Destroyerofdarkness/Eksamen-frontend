@@ -35,6 +35,18 @@
                     <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
                     <button type="submit">Oppdater</button>
                 </form>
+                <form class="form authorized">
+                    <input type="hidden" name="id" id="id" value="<%= issue._id %>">
+                    <label for="worker">Velg Ansvarlig:</label>
+                    <select name="worker" id="worker">
+                        <option value="">Nå: <%= issue.authorized  %></option>
+                        <% workers.forEach(worker => {%>
+                            <option value="<%= worker.name %>"><%= worker.name %></option>
+                        <%});%>
+                    </select>
+                    <button type="submit">Oppdater</button>
+                </form>
+
                 <button class="lukkLogg">Lukk Loggen</button>
                 <button class="skrivLogg">Skriv i Loggen</button>
                 <form class="form logg">
