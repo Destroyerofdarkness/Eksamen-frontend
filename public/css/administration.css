@@ -120,6 +120,16 @@ main section p {
     font-family: var(--kadwa);
     color: var(--primary);
 }
+h5{
+    font-family: var(--kadwa);
+    font-size: 1vw;
+    margin: 0;
+    padding: 0;
+    color: var(--primary);
+}
+.open button{
+     margin-left: auto;
+}
 .close button{
     margin-left: auto;
 }

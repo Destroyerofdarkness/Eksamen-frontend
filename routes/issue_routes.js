@@ -19,5 +19,7 @@ router.put("/oppdater/ansvarlig", authenticate, checkAdmin, controller.update_is
 
 router.put("/oppdater/status", authenticate, checkAdmin, controller.close_issue_req);
 
+router.put("/oppdater/aapne", authenticate, checkAdmin, controller.open_issue_req)
+
 
 module.exports = router;

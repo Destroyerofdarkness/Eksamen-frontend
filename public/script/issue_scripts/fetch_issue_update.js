@@ -91,6 +91,9 @@ main.addEventListener("submit", async(e)=>{
            window.location.reload();
             }
         }
+
+
+        //Closing the case
     } else if (e.target.classList.contains("close")){
 
 
@@ -111,5 +114,27 @@ main.addEventListener("submit", async(e)=>{
            window.alert("Det er ikke mulig å lukket hendelsen akkurat nå!!");
            window.location.reload();
             }
+
+        //Opening the case
+    }else if(e.target.classList.contains("open")){
+
+        const issueId = e.target.issueId.value;
+
+        const res = await fetch("/hendelse/oppdater/aapne",{
+            method: "PUT",
+            body: JSON.stringify({issueId}),
+            headers: {"Content-Type": "application/json"}
+        })
+
+        const {success} = await res.json();
+
+            if(success){
+            window.alert("Hendelsen ble Åpnet!!");
+            window.location.reload();
+            }else{
+           window.alert("Det er ikke mulig å åpne hendelsen akkurat nå!!");
+           window.location.reload();
+            }
+
     }
 })

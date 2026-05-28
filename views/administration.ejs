@@ -1,70 +1,100 @@
 <%- include("./partials/head.ejs") %>
-<link rel="stylesheet" href="/css/administration.css">
-<script src="/script/issue_scripts/fetch_issue_update.js" defer></script>
+    <link rel="stylesheet" href="/css/administration.css">
+    <script src="/script/issue_scripts/fetch_issue_update.js" defer></script>
     <%- include("./partials/header.ejs") %>
 
         <h3>Administrer Hendelsene</h3>
 
-            <form id="filter" action="/hendelse/administrasjon" method="get">
-                <label for="criticalLevel">Kritisk Nivå</label>
-                <select name="criticalLevel" id="criticalLevel">
-                    <option value="" >Nå: <%= criticality %></option>
-                    <option value="">Ingen</option>
-                    <option value="Høy">Høy</option>
-                    <option value="Middels">Middels</option>
-                    <option value="Lav">Lav</option>
-                    <option value="Låst">Låst</option>
-                </select>
-                <button type="submit">Filtrer</button>
-            </form>
+        <form id="filter" action="/hendelse/administrasjon" method="get">
+            <label for="criticalLevel">Kritisk Nivå</label>
+            <select name="criticalLevel" id="criticalLevel">
+                <option value="">Nå: <%= criticality %> </option>
+                <option value="">Ingen</option>
+                <option value="Høy">Høy</option>
+                <option value="Middels">Middels</option>
+                <option value="Lav">Lav</option>
+                <option value="Låst">Låst</option>
+            </select>
+            <button type="submit">Filtrer</button>
+        </form>
 
 
         <main>
 
-            <% Issues.forEach(issue => {%>         
-            <section>
-                <h4><%= issue.title  %></h4>
-                <p><%= issue.description %></p>
-                <p>Status: <%= issue.status  %></p>
-                <form class="form criticalLevel">
-                    <label for="criticalLevel">Kritisk Nivå:</label>
-                    <select name="criticalLevel" id="criticalLevel">
-                        <option value="" >Nå: <%= issue.criticality%></option>
-                        <option value="Høy">Høy</option>
-                        <option value="Middels">Middels</option>
-                        <option value="Lav">Lav</option>
-                    </select>
-                    <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
-                    <button type="submit">Oppdater</button>
-                </form>
-                <form class="form authorized">
-                    <input type="hidden" name="id" id="id" value="<%= issue._id %>">
-                    <label for="worker">Velg Ansvarlig:</label>
-                    <select name="worker" id="worker">
-                        <option value="">Nå: <%= issue.authorized  %></option>
-                        <% workers.forEach(worker => {%>
-                            <option value="<%= worker.name %>"><%= worker.name %></option>
-                        <%});%>
-                    </select>
-                    <button type="submit">Oppdater</button>
-                </form>
+            <% Issues.forEach(issue=> {%>
+                <section>
+                    <h4>
+                        <%= issue.title %>
+                    </h4>
+                    <p>
+                        <%= issue.description %>
+                    </p>
+                    <p>Status: <%= issue.status %>
+                    </p>
+                    <% if(issue.criticality==="Låst" ){ %>
+                        <p>Ansvarlig: <%= issue.authorized %>
+                        </p>
+                        <h5>Logg:</h5>
+                        <% if(!issue.loggText=="" ){ %>
+                            <p>
+                                <%= issue.loggText %>
+                            </p>
+                            <% }else{ %>
+                                <p>Ingen Logg!!</p>
+                                <% } %>
+                        <form class="form open">
+                            <input type="hidden" name="issueId" value="<%= issue._id %>">
+                            <button type="submit">Åpne Hendelsen</button>
+                        </form>
 
-                <button class="lukkLogg">Lukk Loggen</button>
-                <button class="skrivLogg">Skriv i Loggen</button>
-                <form class="form logg">
-                    <input type="hidden" name="id" id="id" value="<%= issue._id %>">
-                    <label for="logg">Skriv eller oppdater her:</label>
-                    <textarea name="logg" id="logg"><%= issue.loggText %></textarea>
-                    <button type="submit">Oppdater</button>
-                </form>
-                <form class="form close">
-                    <input type="hidden" name="issueId" id="issueId" value="<%= issue._id %>">
-                    <button type="submit">Lukk Hendelsen</button>
-                </form>
-            </section>
-            <% }); %>
+                                    <% }else{ %>
+                                        <form class="form criticalLevel">
+                                            <label for="criticalLevel">Kritisk Nivå:</label>
+                                            <select name="criticalLevel" id="criticalLevel">
+                                                <option value="">Nå: <%= issue.criticality%>
+                                                </option>
+                                                <option value="Høy">Høy</option>
+                                                <option value="Middels">Middels</option>
+                                                <option value="Lav">Lav</option>
+                                            </select>
+                                            <input type="hidden" name="issueId" id="issueId" value="<%= issue._id  %>">
+                                            <button type="submit">Oppdater</button>
+                                        </form>
+
+                                        <form class="form authorized">
+                                            <input type="hidden" name="id" id="id" value="<%= issue._id %>">
+                                            <label for="worker">Velg Ansvarlig:</label>
+                                            <select name="worker" id="worker">
+                                                <option value="">Nå: <%= issue.authorized %>
+                                                </option>
+                                                <% workers.forEach(worker=> {%>
+                                                    <option value="<%= worker.name %>">
+                                                        <%= worker.name %>
+                                                    </option>
+                                                    <%});%>
+                                            </select>
+                                            <button type="submit">Oppdater</button>
+                                        </form>
+
+                                        <button class="lukkLogg">Lukk Loggen</button>
+                                        <button class="skrivLogg">Skriv i Loggen</button>
+                                        <form class="form logg">
+                                            <input type="hidden" name="id" id="id" value="<%= issue._id %>">
+                                            <label for="logg">Skriv eller oppdater her:</label>
+                                            <textarea name="logg" id="logg"><%= issue.loggText %></textarea>
+                                            <button type="submit">Oppdater</button>
+                                        </form>
+                                        <form class="form close">
+                                            <input type="hidden" name="issueId" id="issueId" value="<%= issue._id %>">
+                                            <button type="submit">Lukk Hendelsen</button>
+                                        </form>
+                                        <% } %>
+
+
+                </section>
+                <% }); %>
 
 
         </main>
 
-<%- include("./partials/footer.ejs")  %>
+        <%- include("./partials/footer.ejs") %>
