@@ -13,6 +13,7 @@
                     <option value="Høy">Høy</option>
                     <option value="Middels">Middels</option>
                     <option value="Lav">Lav</option>
+                    <option value="Låst">Låst</option>
                 </select>
                 <button type="submit">Filtrer</button>
             </form>
@@ -24,6 +25,7 @@
             <section>
                 <h4><%= issue.title  %></h4>
                 <p><%= issue.description %></p>
+                <p>Status: <%= issue.status  %></p>
                 <form class="form criticalLevel">
                     <label for="criticalLevel">Kritisk Nivå:</label>
                     <select name="criticalLevel" id="criticalLevel">
