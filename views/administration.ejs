@@ -8,7 +8,7 @@
             <form id="filter" action="/hendelse/administrasjon" method="get">
                 <label for="criticalLevel">Kritisk Nivå</label>
                 <select name="criticalLevel" id="criticalLevel">
-                    <option value="" disabled>Nå: <%= criticality %></option>
+                    <option value="" >Nå: <%= criticality %></option>
                     <option value="">Ingen</option>
                     <option value="Høy">Høy</option>
                     <option value="Middels">Middels</option>
@@ -27,7 +27,7 @@
                 <form class="form criticalLevel">
                     <label for="criticalLevel">Kritisk Nivå:</label>
                     <select name="criticalLevel" id="criticalLevel">
-                        <option value="" disabled>Nå: <%= issue.criticality%></option>
+                        <option value="" >Nå: <%= issue.criticality%></option>
                         <option value="Høy">Høy</option>
                         <option value="Middels">Middels</option>
                         <option value="Lav">Lav</option>
@@ -54,6 +54,10 @@
                     <label for="logg">Skriv eller oppdater her:</label>
                     <textarea name="logg" id="logg"><%= issue.loggText %></textarea>
                     <button type="submit">Oppdater</button>
+                </form>
+                <form class="form close">
+                    <input type="hidden" name="issueId" id="issueId" value="<%= issue._id %>">
+                    <button type="submit">Lukk Hendelsen</button>
                 </form>
             </section>
             <% }); %>

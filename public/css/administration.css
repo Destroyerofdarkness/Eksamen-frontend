@@ -120,6 +120,9 @@ main section p {
     font-family: var(--kadwa);
     color: var(--primary);
 }
+.close button{
+    margin-left: auto;
+}
 :root{
     --primary: #313BFF;
     --secondary: #F2F2F2;

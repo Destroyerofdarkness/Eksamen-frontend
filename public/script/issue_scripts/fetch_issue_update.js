@@ -48,6 +48,7 @@ main.addEventListener("submit", async(e)=>{
     } else if (e.target.classList.contains("criticalLevel")){
         const issueId = e.target.issueId.value;
         const criticality = e.target.criticalLevel.value;
+        if(!criticality == ""){
         
         const res = await fetch("/hendelse/oppdater/kritiskNiva",{
             method: "PUT",
@@ -65,7 +66,9 @@ main.addEventListener("submit", async(e)=>{
            window.alert("Det er ikke mulig å oppdatere hendelsen akkurat nå!!");
            window.location.reload();
         }
+    }
 
+        //Authorized person Update
     } else if(e.target.classList.contains("authorized")){
         const worker = e.target.worker.value;
         if(!worker ==""){
@@ -88,5 +91,25 @@ main.addEventListener("submit", async(e)=>{
            window.location.reload();
             }
         }
+    } else if (e.target.classList.contains("close")){
+
+
+        const issueId = e.target.issueId.value;
+
+        const res = await fetch("/hendelse/oppdater/status",{
+            method: "PUT",
+            body: JSON.stringify({issueId}),
+            headers: {"Content-Type": "application/json"}
+        })
+
+        const {success} = await res.json();
+
+            if(success){
+            window.alert("Hendelsen ble lukket!!");
+            window.location.reload();
+            }else{
+           window.alert("Det er ikke mulig å lukket hendelsen akkurat nå!!");
+           window.location.reload();
+            }
     }
 })

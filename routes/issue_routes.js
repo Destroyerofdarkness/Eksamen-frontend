@@ -17,5 +17,7 @@ router.put("/oppdater/kritiskNiva", authenticate, checkAdmin, controller.update_
 
 router.put("/oppdater/ansvarlig", authenticate, checkAdmin, controller.update_issue_authorized_req);
 
+router.put("/oppdater/status", authenticate, checkAdmin, controller.close_issue_req);
+
 
 module.exports = router;
